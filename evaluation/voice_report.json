@@ -1,0 +1,69 @@
+{
+  "normalization": "Arabic diacritics/punctuation removed; alef/yaa/taa marbuta normalized",
+  "stt_model": "local models/whisper-small-libyan if present, otherwise Tass02/whisper-small-libyan",
+  "splits": {
+    "clean": {
+      "files": 1,
+      "evaluated": 1,
+      "wer": 0.0,
+      "substitutions": 0,
+      "deletions": 0,
+      "insertions": 0,
+      "rows": [
+        {
+          "file": "clean_01.wav",
+          "status": "ok",
+          "reference": "ما هي مدة الإجازة السنوية؟",
+          "hypothesis": "ما هي مدة الإجازة السنوية؟",
+          "wer": 0.0,
+          "substitutions": 0,
+          "deletions": 0,
+          "insertions": 0,
+          "latency_seconds": 19.541
+        }
+      ]
+    },
+    "dialect": {
+      "files": 1,
+      "evaluated": 1,
+      "wer": 0.2,
+      "substitutions": 2,
+      "deletions": 0,
+      "insertions": 0,
+      "rows": [
+        {
+          "file": "dialect_01.wav",
+          "status": "ok",
+          "reference": "هذا بنختبر بيه جودة اللهجة الليبية شنو كويسة ولا لا",
+          "hypothesis": "هذا بنختبر به جودة الأهجة الليبية، شنو كويسة ولا لا؟",
+          "wer": 0.2,
+          "substitutions": 2,
+          "deletions": 0,
+          "insertions": 0,
+          "latency_seconds": 9.04
+        }
+      ]
+    },
+    "noisy": {
+      "files": 1,
+      "evaluated": 1,
+      "wer": 0.1429,
+      "substitutions": 1,
+      "deletions": 0,
+      "insertions": 0,
+      "rows": [
+        {
+          "file": "noisy_01.wav",
+          "status": "ok",
+          "reference": "ما هي حقوق العامل في الإجازة السنوية؟",
+          "hypothesis": "ما هي حقوق العامل في الإجاز السنوية؟",
+          "wer": 0.1429,
+          "substitutions": 1,
+          "deletions": 0,
+          "insertions": 0,
+          "latency_seconds": 6.982
+        }
+      ]
+    }
+  }
+}
