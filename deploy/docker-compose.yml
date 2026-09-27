@@ -1,0 +1,43 @@
+# ─── Mizan AI — Production Stack ─────────────────────────────────────────────
+# Backend API (FastAPI) on :8000, Frontend (Vite build served by Nginx) on :80
+# Usage:  docker compose up --build
+#
+# NOTE: the mizan/ package needs the ChromaDB index + ONNX embedder which are
+# built locally (data/chroma_db). This compose file mounts ./data so the same
+# index used by the Streamlit app is shared with the API container.
+
+services:
+  api:
+    build:
+      context: ..
+      dockerfile: deploy/Dockerfile.api
+    container_name: mizan-api
+    env_file: ../.env
+    environment:
+      - DATABASE_URL=sqlite:////data/mizan.db
+    volumes:
+      - ../data:/data
+      - api_uploads:/app/backend/uploads
+    ports:
+      - "8000:8000"
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request;urllib.request.urlopen('http://localhost:8000/api/health')"]
+      interval: 30s
+      timeout: 5s
+      retries: 5
+      start_period: 120s
+
+  web:
+    build:
+      context: ..
+      dockerfile: deploy/Dockerfile.web
+    container_name: mizan-web
+    depends_on:
+      - api
+    ports:
+      - "80:80"
+    restart: unless-stopped
+
+volumes:
+  api_uploads:
