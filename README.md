@@ -135,4 +135,20 @@ python evaluation\run_all.py --module voice  # بعد واحد فقط
 ---
 
 ## ⚖️ تنويه قانوني
-المعلومات والاستشارات المقدمة من هذا النظام استرشادية مبنية على النصوص الصريحة للتشريعات الليبية المتاحة في قاعدة المعرفة، ولا تغني عن استشارة محامٍ أو مستشار قانوني معتمد عند اتخاذ الإجراءات الرسمية.
+> تنويه: المعلومات والاستشارات المقدمة من هذا النظام استرشادية مبنية على النصوص الصريحة للتشريعات الليبية المتاحة في قاعدة المعرفة، ولا تغني عن استشارة محامٍ أو مستشار قانوني معتمد عند اتخاذ الإجراءات الرسمية.
+
+---
+
+## 🏦 Payment Concierge — ElevenLabs voice agent backend
+
+This repo also contains the **Payment Concierge** backend service — a FastAPI
+web service that ElevenLabs Conversational AI agents call for collections
+tool execution (customer lookup, outstanding amount, settlement solutions).
+
+| Directory | What it is |
+|-----------|------------|
+| `payment-concierge/` | FastAPI backend with the 14-field schema |
+| `elevenlabs/` | Agent definitions and workflow specs |
+| `docs/` | Architecture docs + Venkat's workstream guide |
+
+See [`payment-concierge/README.md`](payment-concierge/README.md) to get started.
