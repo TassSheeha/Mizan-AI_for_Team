@@ -39,3 +39,7 @@ data/chroma_db/
 # Logs
 *.log
 
+# ─── Payment Concierge ────────────────────────────────────────────────────────
+payment-concierge/.env
+__pycache__/
+
